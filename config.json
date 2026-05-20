@@ -7,13 +7,6 @@
         "database": "sql12827492"
     },
     "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
-    "emailFrom": "borissyap105@gmail.com",
-    "smtpOptions": {
-        "host": "smtp.gmail.com",
-        "port": 465,
-        "auth": {
-            "user": "borissyap105@gmail.com",
-            "pass": "qqbtrtkvxepjwhrf"
-        }
-    }
+    "emailFrom": "onboarding@resend.dev",
+    "resendApiKey": "re_YmuDeeco_PTCcWVfNmRQfV4Yx3CHAUVcE"
 }
