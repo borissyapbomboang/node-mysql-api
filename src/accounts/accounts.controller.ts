@@ -45,6 +45,10 @@ function authenticate(req: any, res: any, next: any) {
 function refreshToken(req: any, res: any, next: any) {
     const token = req.cookies.refreshToken;
     const ipAddress = req.ip;
+    
+    // ✅ Return 401 instead of crashing with 500
+    if (!token) return res.status(401).json({ message: 'Unauthorized' });
+    
     accountService.refreshToken({ token, ipAddress })
         .then(({ refreshToken, ...account }: any) => {
             setTokenCookie(res, refreshToken);
@@ -206,7 +210,9 @@ function _delete(req: any, res: any, next: any) {
 function setTokenCookie(res: any, token: any) {
     const cookieOptions = {
         httpOnly: true,
-        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        sameSite: 'none' as const,  // ✅ required for cross-domain
+        secure: true                 // ✅ required for sameSite=none
     };
     res.cookie('refreshToken', token, cookieOptions);
 }
