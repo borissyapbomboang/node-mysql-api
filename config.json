@@ -1,20 +1,19 @@
-
 {
-  "database": {
-    "host": "localhost",
-    "port": 3306,
-    "user": "root",
-    "password": "",
-    "database": "node_mysql_api"
-  },
-  "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
-  "emailFrom": "info@my-node-api.com",
-"smtpOptions": {
-  "host": "smtp.ethereal.email",
-  "port": 587,
-  "auth": {
-    "user": "reagan.mante@ethereal.email",
-    "pass": "ES5sPHhnp3Xs2eTJkq"
-  }
-}
+    "database": {
+        "host": "sql12.freesqldatabase.com",
+        "port": 3306,
+        "user": "sql12827492",
+        "password": "p8EBKhRgZG",
+        "database": "sql12827492"
+    },
+    "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
+    "emailFrom": "borissyap105@gmail.com",
+    "smtpOptions": {
+        "host": "smtp.gmail.com",
+        "port": 587,
+        "auth": {
+            "user": "borissyap105@gmail.com",
+            "pass": "qqbt rtkv xepj whrf"
+        }
+    }
 }
