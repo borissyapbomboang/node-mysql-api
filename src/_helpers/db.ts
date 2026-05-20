@@ -7,10 +7,14 @@ import refreshTokenModel from '../accounts/refresh-token.model';
 const db: any = {};
 export default db;
 
-initialize().catch(err => console.error(err)); // Commented out to allow server to start without MySQL
+initialize().catch(err => console.error(err));
 
 async function initialize() {
-    const { host, port, user, password, database } = config.database;
+    const host = process.env.DB_HOST || config.database.host;
+    const port = parseInt(process.env.DB_PORT || config.database.port);
+    const user = process.env.DB_USER || config.database.user;
+    const password = process.env.DB_PASSWORD || config.database.password;
+    const database = process.env.DB_NAME || config.database.database;
 
     const connection = await mysql.createConnection({ host, port, user, password });
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
